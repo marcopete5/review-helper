@@ -27,11 +27,13 @@ class LessonProvider extends Component {
     }
 
     deleteQueueItem = name => {
+        console.log(this.state.name, name)
         if((name === this.state.name || this.state.name === 'admin1423') && this.state.queue.length > 1){
+            console.log('adjusted')
             axios.put(`/queue/${this.state.queueId}`, {queue: this.state.queue.filter(el => el.name !== name)}).then(res => {
                 this.setState(({queue}) => ({queue: queue.filter(el => el.name !== name)}))
             })
-        }else {
+        }else if(this.state.queue.length <= 1 && this.state.name === name) {
             this.clearQueue()
         }
     }
