@@ -1,0 +1,321 @@
+{
+    "module1": [
+        {
+            "name": "Box Model",
+            "type": "css"
+        },{
+            "name": "Responsive Design",
+            "type": "css"
+        },{
+            "name": "Flexbox",
+            "type": "css"
+        },{
+            "name": "CSS Grid",
+            "type": "css"
+        },{
+            "name": "Github Basics",
+            "type": "npm/node"
+        },{
+            "name": "Readline-sync",
+            "type": "npm/node"
+        },{
+            "name": "Node && NPM",
+            "type": "npm/node"
+        },{
+            "name": "DOM Manipulation",
+            "type": "vanillaJS"
+        },{
+            "name": "DOM Event Listeners",
+            "type": "vanillaJS"
+        },{
+            "name": "Looping through Arrays",
+            "type": "vanillaJS"
+        },{
+            "name": "Array Methods",
+            "type": "vanillaJS"
+        },{
+            "name": "String Methods",
+            "type": "vanillaJS"
+        },{
+            "name": "Mutability",
+            "type": "vanillaJS"
+        },{
+            "name": "Constructor Functions",
+            "type": "vanillaJS"
+        },{
+            "name": "RPG Setup",
+            "type": "vanillaJS"
+        },{
+            "name": "Destructuring",
+            "type": "vanillaJS"
+        },{
+            "name": "Arrow Functions",
+            "type": "vanillaJS"
+        },{
+            "name": "Rest and Spread Operators",
+            "type": "vanillaJS"
+        },{
+            "name": "Debugging Techniques",
+            "type": "vanillaJS"
+        },{
+            "name": "Other",
+            "type": "vanillaJS"
+        }
+    ],
+    "module2": [
+        {
+            "name": "Forms",
+            "type": "vanillaJS"
+        },{
+            "name": "DOM Properties & Methods",
+            "type": "vanillaJS"
+        },{
+            "name": "Web Storage",
+            "type": "vanillaJS"
+        },{
+            "name": "Map",
+            "type": "vanillaJS"
+        },{
+            "name": "Filter",
+            "type": "vanillaJS"
+        },{
+            "name": "Other Higher Order Functions",
+            "type": "vanillaJS"
+        },{
+            "name": "SetInterval & SetTimeout",
+            "type": "vanillaJS"
+        },{
+            "name": "CSS Transitions",
+            "type": "css"
+        },{
+            "name": "Destructuring",
+            "type": "vanillaJS"
+        },{
+            "name": "Arrow Functions",
+            "type": "vanillaJS"
+        },{
+            "name": "Rest and Spread Operators",
+            "type": "vanillaJS"
+        },{
+            "name": "Debugging Techniques",
+            "type": "vanillaJS"
+        },{
+            "name": "JSON",
+            "type": "vanillaJS"
+        },{
+            "name": "Classes",
+            "type": "vanillaJS"
+        },{
+            "name": "Axios",
+            "type": "npm/node"
+        },{
+            "name": "HTTP",
+            "type": "vanillaJS"
+        },{
+            "name": "Other",
+            "type": "vanillaJS"
+        }
+    ],
+    "module3": [
+        {
+            "name": "React & ReactDOM",
+            "type": "react"
+        },{
+            "name": "React Functional Components",
+            "type": "react"
+        },{
+            "name": "JSX",
+            "type": "react"
+        },{
+            "name": "Styling Components",
+            "type": "react"
+        },{
+            "name": "React Props",
+            "type": "react"
+        },{
+            "name": "Mapping through Components",
+            "type": "react"
+        },{
+            "name": "React Class-Based Components",
+            "type": "react"
+        },{
+            "name": "React State",
+            "type": "react"
+        },{
+            "name": "React setState",
+            "type": "react"
+        },{
+            "name": "React Event Listeners",
+            "type": "react"
+        },{
+            "name": "React Forms",
+            "type": "react"
+        },{
+            "name": "Lifecycle Methods",
+            "type": "react"
+        },{
+            "name": "Conditional or Dynamic Rendering",
+            "type": "react"
+        },{
+            "name": "Hooks",
+            "type": "react"
+        },{
+            "name": "Debugging Techniques",
+            "type": "react"
+        },{
+            "name": "Other",
+            "type": "react"
+        } 
+    ],
+    "module4": [
+        {
+            "name": "React & ReactDOM",
+            "type": "react"
+        },{
+            "name": "React Functional Components",
+            "type": "react"
+        },{
+            "name": "JSX",
+            "type": "react"
+        },{
+            "name": "Styling Components",
+            "type": "react"
+        },{
+            "name": "React Props",
+            "type": "react"
+        },{
+            "name": "Mapping through Components",
+            "type": "react"
+        },{
+            "name": "React Class-Based Components",
+            "type": "react"
+        },{
+            "name": "React State",
+            "type": "react"
+        },{
+            "name": "React setState",
+            "type": "react"
+        },{
+            "name": "React Event Listeners",
+            "type": "react"
+        },{
+            "name": "React Forms",
+            "type": "react"
+        },{
+            "name": "Lifecycle Methods",
+            "type": "react"
+        },{
+            "name": "Conditional or Dynamic Rendering",
+            "type": "react"
+        },{
+            "name": "Hooks",
+            "type": "react"
+        },{
+            "name": "Debugging Techniques",
+            "type": "react"
+        },{
+            "name": "Other",
+            "type": "react"
+        } 
+    ],"module5": [
+        {
+            "name": "React & ReactDOM",
+            "type": "react"
+        },{
+            "name": "React Functional Components",
+            "type": "react"
+        },{
+            "name": "JSX",
+            "type": "react"
+        },{
+            "name": "Styling Components",
+            "type": "react"
+        },{
+            "name": "React Props",
+            "type": "react"
+        },{
+            "name": "Mapping through Components",
+            "type": "react"
+        },{
+            "name": "React Class-Based Components",
+            "type": "react"
+        },{
+            "name": "React State",
+            "type": "react"
+        },{
+            "name": "React setState",
+            "type": "react"
+        },{
+            "name": "React Event Listeners",
+            "type": "react"
+        },{
+            "name": "React Forms",
+            "type": "react"
+        },{
+            "name": "Lifecycle Methods",
+            "type": "react"
+        },{
+            "name": "Conditional or Dynamic Rendering",
+            "type": "react"
+        },{
+            "name": "Hooks",
+            "type": "react"
+        },{
+            "name": "Debugging Techniques",
+            "type": "react"
+        },{
+            "name": "Other",
+            "type": "react"
+        } 
+    ],"module6": [
+        {
+            "name": "React & ReactDOM",
+            "type": "react"
+        },{
+            "name": "React Functional Components",
+            "type": "react"
+        },{
+            "name": "JSX",
+            "type": "react"
+        },{
+            "name": "Styling Components",
+            "type": "react"
+        },{
+            "name": "React Props",
+            "type": "react"
+        },{
+            "name": "Mapping through Components",
+            "type": "react"
+        },{
+            "name": "React Class-Based Components",
+            "type": "react"
+        },{
+            "name": "React State",
+            "type": "react"
+        },{
+            "name": "React setState",
+            "type": "react"
+        },{
+            "name": "React Event Listeners",
+            "type": "react"
+        },{
+            "name": "React Forms",
+            "type": "react"
+        },{
+            "name": "Lifecycle Methods",
+            "type": "react"
+        },{
+            "name": "Conditional or Dynamic Rendering",
+            "type": "react"
+        },{
+            "name": "Hooks",
+            "type": "react"
+        },{
+            "name": "Debugging Techniques",
+            "type": "react"
+        },{
+            "name": "Other",
+            "type": "react"
+        } 
+    ]
+}
