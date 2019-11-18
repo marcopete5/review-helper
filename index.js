@@ -2,11 +2,13 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const path = require("path")
+const morgan = require('morgan')
 const port = process.env.PORT || 5000;
 
 app.use(express.json())
-app.use('/votes', require('./voteRoutes'))
-app.use('/queue', require('./queueRoutes'))
+app.use(morgan('dev'))
+app.use('/api/votes', require('./voteRoutes'))
+app.use('/api/queue', require('./queueRoutes'))
 app.use(express.static(path.join(__dirname, "client", "build")))
 
 

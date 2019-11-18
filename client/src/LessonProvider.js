@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import moduleIds from './moduleIds.json';
 const {Provider, Consumer} = React.createContext()
 
 class LessonProvider extends Component {
@@ -13,7 +14,7 @@ class LessonProvider extends Component {
             name: JSON.parse(localStorage.getItem('name')) || '',
             currentModule: '',
             prevModule: '',
-            moduleIds: JSON.parse(localStorage.getItem('moduleIds')) || {},
+            moduleIds,
             votesId: '',
             queueId: '',
             queue: []
@@ -21,7 +22,7 @@ class LessonProvider extends Component {
     }
 
     clearQueue = () => {
-        axios.delete(`/queue/${this.state.queueId}`).then(res => {
+        axios.delete(`/api/queue/${this.state.queueId}`).then(res => {
             this.setState({queue: []})
         })
     }
@@ -30,7 +31,7 @@ class LessonProvider extends Component {
         console.log(this.state.name, name)
         if((name === this.state.name || this.state.name === 'admin1423') && this.state.queue.length > 1){
             console.log('adjusted')
-            axios.put(`/queue/${this.state.queueId}`, {queue: this.state.queue.filter(el => el.name !== name)}).then(res => {
+            axios.put(`/api/queue/${this.state.queueId}`, {queue: this.state.queue.filter(el => el.name !== name)}).then(res => {
                 this.setState(({queue}) => ({queue: queue.filter(el => el.name !== name)}))
             })
         }else if(this.state.queue.length <= 1 && this.state.name === name) {
@@ -39,7 +40,7 @@ class LessonProvider extends Component {
     }
 
     getQueue = () => {
-        axios.get('/queue').then(res => {
+        axios.get('/api/queue').then(res => {
             if(res.data.length){
                 this.setState({queue: res.data[0].queue, queueId: res.data[0]._id})
             }
@@ -50,12 +51,12 @@ class LessonProvider extends Component {
         if(this.state.name === 'admin1423'){
             console.log('admin can not join queue')
         }else if(this.state.queue.length === 0){
-            axios.post('/queue', {queue: [{name: this.state.name, timeEntered: Date.now()}]}).then(res => {
+            axios.post('/api/queue', {queue: [{name: this.state.name, timeEntered: Date.now()}]}).then(res => {
                 this.setState({queue: res.data.queue, queueId: res.data._id})
             })
         }else if(!this.state.queue.some(person => person.name === this.state.name) && this.state.queue.length){
             let now = Date.now()
-            axios.put(`/queue/${this.state.queueId}`, {queue: [...this.state.queue, {name: this.state.name, timeEntered: now}]}).then(res => {
+            axios.put(`/api/queue/${this.state.queueId}`, {queue: [...this.state.queue, {name: this.state.name, timeEntered: now}]}).then(res => {
                 this.setState(({queue, name}) => ({queue: [...queue, {name: this.state.name, timeEntered: now}]}))
             })
         }
@@ -67,32 +68,38 @@ class LessonProvider extends Component {
     }
 
     getVotes = (mod) => {
-        if(this.state.moduleIds[mod]){
-            axios.get('/votes/' + this.state.moduleIds[mod]).then(res => {
+        // console.log(moduleIds[mod])
+        // if(this.state.moduleIds[mod]){
+            axios.get('/api/votes/' + this.state.moduleIds[mod]).then(res => {
                 // console.log(res.data, 'other')
                 if(Object.keys(res.data).length !== 0){
-                    this.setState(({currentModule}) =>({voted: res.data.topics, votesId: res.data._id, currentModule: mod, prevModule: currentModule }), ()=> this.displayGraph())
+                    this.setState(({currentModule}) =>({
+                        voted: res.data.topics, 
+                        votesId: res.data._id, 
+                        currentModule: mod, 
+                        prevModule: currentModule 
+                    }), ()=> this.displayGraph())
                 }
             })
-        }else {
-            axios.post('/votes', {topics: {nothing: 'yet'}, module: mod}).then(res => {
-                this.setState(({moduleIds, currentModule}) => {
-                    return {
-                            votesId: res.data._id, 
-                            currentModule: res.data.module, 
-                            prevModule: currentModule,
-                            voted: {},
-                            moduleIds: {
-                                ...moduleIds,
-                                [res.data.module]: res.data._id
-                            }
-                    }
-                    }, ()=> {
-                        localStorage.setItem('moduleIds', JSON.stringify(this.state.moduleIds))
-                        this.displayGraph()
-                    })
-            })
-        }
+        //} else {
+        //     axios.post('/api/votes', {topics: {nothing: 'yet'}, module: mod}).then(res => {
+        //         this.setState(({moduleIds, currentModule}) => {
+        //             return {
+        //                     votesId: res.data._id, 
+        //                     currentModule: res.data.module, 
+        //                     prevModule: currentModule,
+        //                     voted: {},
+        //                     moduleIds: {
+        //                         ...moduleIds,
+        //                         [res.data.module]: res.data._id
+        //                     }
+        //             }
+        //             }, ()=> {
+        //                 localStorage.setItem('moduleIds', JSON.stringify(this.state.moduleIds))
+        //                 this.displayGraph()
+        //             })
+        //     })
+        // }
     }
     
     addSelected = (lesson, mod) => {
@@ -112,7 +119,7 @@ class LessonProvider extends Component {
             // If there is already a selected 
             if(this.state.votesId){
                 delete votedList.nothing
-                axios.put(`/votes/${this.state.votesId}`, {topics: votedList, module: mod}).then(res => {
+                axios.put(`/api/votes/${this.state.votesId}`, {topics: votedList, module: mod}).then(res => {
                     this.updateVotes(lesson, mod)
                 })
             }else {
@@ -168,7 +175,7 @@ class LessonProvider extends Component {
     }
 
     resetVotes = () => {
-        axios.put(`/votes/${this.state.votesId}`, {topics: {nothing: 'yet'}}).then(res => {
+        axios.put(`/api/votes/${this.state.votesId}`, {topics: {nothing: 'yet'}}).then(res => {
             this.setState({voted:{}, voteDisplay: {}, selectedToReview: []})
         })
     }
